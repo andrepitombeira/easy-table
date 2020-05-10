@@ -1,0 +1,7 @@
+@startuml
+actor User << Human >>
+actor DB << Application >>
+
+User -right- (List Reservations)
+DB -left- (List Reservations)
+@enduml

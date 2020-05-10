@@ -1,0 +1,44 @@
+{
+  "reservations": [
+    {
+      "id": 1,
+      "guestId": 1,
+      "numberOfGuests": 2,
+      "restaurantId": 1,
+      "start": "2020-05-10T012:00:00Z",
+      "end": "2020-05-10T013:00:00Z"
+    },
+    {
+      "id": 2,
+      "guestId": 2,
+      "numberOfGuests": 2,
+      "restaurantId": 2,
+      "start": "2020-05-10T013:00:00Z",
+      "end": "2020-05-10T014:00:00Z"
+    },
+    {
+      "id": 3,
+      "guestId": 3,
+      "numberOfGuests": 2,
+      "restaurantId": 3,
+      "start": "2020-05-10T014:00:00Z",
+      "end": "2020-05-10T015:00:00Z"
+    },
+    {
+      "id": 4,
+      "guestId": 4,
+      "numberOfGuests": 2,
+      "restaurantId": 4,
+      "start": "2020-05-10T015:00:00Z",
+      "end": "2020-05-10T016:00:00Z"
+    },
+    {
+      "id": 5,
+      "guestId": 5,
+      "numberOfGuests": 2,
+      "restaurantId": 5,
+      "start": "2020-05-10T016:00:00Z",
+      "end": "2020-05-10T017:00:00Z"
+    }
+  ]
+}
