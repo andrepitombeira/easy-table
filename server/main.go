@@ -8,12 +8,35 @@ import (
 )
 
 type Reservation struct {
-	ID             int    `json:"id"`
-	GuestID        int    `json:"guestId"`
-	RestaurantID   int    `json:"restaurantId"`
-	NumberOfGuests int    `json:"numberOfGuests"`
-	Start          string `json:"start"`
-	End            string `json:"end"`
+	ID             int
+	Start          string
+	End            string
+	GuestID        int
+	NumberOfGuests int
+	RestaurantID   int
+}
+
+type Guest struct {
+	ID        int
+	FirstName int
+	LastName  int
+	Email     int
+	Phone     string
+}
+
+type Restaurant struct {
+	ID      int
+	Name    int
+	Phone   string
+	Address RestaurantAddress
+}
+
+type RestaurantAddress struct {
+	RestaurantID int
+	Street       string
+	ZipCode      string
+	City         string
+	Country      string
 }
 
 type Reservations struct {
