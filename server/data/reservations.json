@@ -1,0 +1,53 @@
+{
+  "reservations": [{
+    "start": "2020-07-03 08:00:00",
+    "end": "2020-07-03 08:30:00 UTC",
+    "number_of_guests": 11,
+    "guest": "Giffer Tincey"
+  }, {
+    "start": "2020-07-03 04:00:00",
+    "end": "2020-07-03 04:30:00 UTC",
+    "number_of_guests": 8,
+    "guest": "Garner Mc Cahey"
+  }, {
+    "start": "2020-07-03 05:00:00",
+    "end": "2020-07-03 05:30:00 UTC",
+    "number_of_guests": 9,
+    "guest": "Dawna MacNelly"
+  }, {
+    "start": "2020-07-03 08:00:00",
+    "end": "2020-07-03 08:30:00 UTC",
+    "number_of_guests": 11,
+    "guest": "Marne Topper"
+  }, {
+    "start": "2020-07-03 10:00:00",
+    "end": "2020-07-03 10:30:00 UTC",
+    "number_of_guests": 1,
+    "guest": "Dur Clemot"
+  }, {
+    "start": "2020-07-03 11:00:00",
+    "end": "2020-07-03 11:30:00 UTC",
+    "number_of_guests": 3,
+    "guest": "Ruthe Van der Kruys"
+  }, {
+    "start": "2020-07-03 12:00:00",
+    "end": "2020-07-03 12:30:00 UTC",
+    "number_of_guests": 1,
+    "guest": "Adan Olyfant"
+  }, {
+    "start": "2020-07-03 14:00:00",
+    "end": "2020-07-03 15:30:00 UTC",
+    "number_of_guests": 4,
+    "guest": "Falito Julien"
+  }, {
+    "start": "2020-07-03 16:00:00",
+    "end": "2020-07-03 17:30:00 UTC",
+    "number_of_guests": 7,
+    "guest": "Jethro De Beneditti"
+  }, {
+    "start": "2020-07-03 12:00:00",
+    "end": "2020-07-03 15:30:00 UTC",
+    "number_of_guests": 12,
+    "guest": "Edita Kasman"
+  }]
+}
