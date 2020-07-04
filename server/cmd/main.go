@@ -1,12 +1,12 @@
 package main
 
 import (
-	"easytable/database"
+	"easytable/persistence"
 	"net/http"
 )
 
 func main() {
-	database.Connect()
+	persistence.Connect()
 	http.HandleFunc("/reservations", reservations)
 	http.ListenAndServe(":8080", nil)
 }
