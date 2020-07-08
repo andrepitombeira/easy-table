@@ -3,6 +3,8 @@ package api
 import (
 	"net/http"
 
+	"easytable/app"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
@@ -10,11 +12,18 @@ import (
 
 type API struct {
 	router chi.Router
+	app    *app.App
 }
 
-func NewAPI() *API {
+type APIInput struct {
+	Router chi.Router
+	App    *app.App
+}
+
+func NewAPI(input APIInput) *API {
 	api := &API{
 		router: chi.NewRouter(),
+		app:    input.App,
 	}
 
 	return api
@@ -23,6 +32,7 @@ func NewAPI() *API {
 func (api *API) Init() {
 	api.initMiddlewares()
 	api.initRootRoutes()
+	api.initReservations()
 }
 
 func (api *API) Router() chi.Router {

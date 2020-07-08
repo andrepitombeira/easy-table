@@ -12,7 +12,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func Connect() {
+func Connect() (*sql.DB, error) {
 	db, err := sql.Open("sqlite3", "./easy-table.db")
 
 	if err != nil {
@@ -25,6 +25,8 @@ func Connect() {
 
 	createReservationsTable(db)
 	populateDBWithMockData(db)
+
+	return db, nil
 }
 
 func createReservationsTable(db *sql.DB) {
