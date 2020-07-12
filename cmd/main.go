@@ -4,12 +4,16 @@ import (
 	"easytable/api"
 	"easytable/app"
 	"easytable/database"
+	"flag"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
-	db, err := database.Connect()
+	databaseURL := os.Getenv("DATABASE_URL")
+	shouldRunDBMigration := getMigrationFlagFromCommandLine()
+	db, err := database.Connect(databaseURL, shouldRunDBMigration)
 
 	if err != nil {
 		log.Panic("Failed to connect to the database", err.Error())
@@ -22,4 +26,10 @@ func main() {
 	api.Init()
 
 	http.ListenAndServe(":3000", api.Router())
+}
+
+func getMigrationFlagFromCommandLine() bool {
+	migration := flag.Bool("migration", false, "indicates if we should run a db migration on startup")
+	flag.Parse()
+	return *migration
 }

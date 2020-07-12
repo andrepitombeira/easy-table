@@ -12,8 +12,8 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func Connect() (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", "./easy-table.db")
+func Connect(databaseURL string, shouldRunMigration bool) (*sql.DB, error) {
+	db, err := sql.Open("sqlite3", databaseURL)
 
 	if err != nil {
 		log.Panic(err)
@@ -23,8 +23,11 @@ func Connect() (*sql.DB, error) {
 		log.Panic(err)
 	}
 
-	createReservationsTable(db)
-	populateDBWithMockData(db)
+	// TODO: move this logic to db migration
+	if shouldRunMigration {
+		createReservationsTable(db)
+		populateDBWithMockData(db)
+	}
 
 	return db, nil
 }
