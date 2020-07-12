@@ -3,19 +3,19 @@ package main
 import (
 	"easytable/api"
 	"easytable/app"
-	"easytable/persistence"
+	"easytable/database"
 	"log"
 	"net/http"
 )
 
 func main() {
-	db, err := persistence.Connect()
+	db, err := database.Connect()
 
 	if err != nil {
 		log.Panic("Failed to connect to the database", err.Error())
 	}
 
-	app := app.NewApp(app.AppInput{ReservationsRepo: persistence.NewReservationsRepo(db)})
+	app := app.NewApp(app.AppInput{ReservationsRepo: database.NewReservationsRepo(db)})
 
 	api := api.NewAPI(api.APIInput{App: app})
 
