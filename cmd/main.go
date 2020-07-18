@@ -3,7 +3,7 @@ package main
 import (
 	"easytable/api"
 	"easytable/app"
-	"easytable/database"
+	"easytable/persistence"
 	"flag"
 	"log"
 	"net/http"
@@ -13,13 +13,13 @@ import (
 func main() {
 	databaseURL := os.Getenv("DATABASE_URL")
 	shouldRunDBMigration := getMigrationFlagFromCommandLine()
-	db, err := database.Connect(databaseURL, shouldRunDBMigration)
+	db, err := persistence.Connect(databaseURL, shouldRunDBMigration)
 
 	if err != nil {
 		log.Panic("Failed to connect to the database", err.Error())
 	}
 
-	app := app.NewApp(app.AppInput{ReservationsRepo: database.NewReservationsRepo(db)})
+	app := app.NewApp(app.AppInput{ReservationsRepo: persistence.NewReservationsRepo(db)})
 
 	api := api.NewAPI(api.APIInput{App: app})
 
