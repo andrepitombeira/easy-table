@@ -26,6 +26,8 @@ func NewAPI(input APIInput) *API {
 		app:    input.App,
 	}
 
+	api.Init()
+
 	return api
 }
 

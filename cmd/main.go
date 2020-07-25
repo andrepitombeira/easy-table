@@ -23,8 +23,6 @@ func main() {
 
 	api := api.NewAPI(api.APIInput{App: app})
 
-	api.Init()
-
 	http.ListenAndServe(":3000", api.Router())
 }
 
