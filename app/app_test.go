@@ -10,7 +10,7 @@ import (
 
 func TestListReservations(t *testing.T) {
 	reservations := []app.Reservation{
-		app.Reservation{
+		{
 			ID:             1,
 			Start:          "2020-07-03 08:00:00",
 			End:            "2020-07-03 08:30:00 UTC",
@@ -30,7 +30,7 @@ func TestListReservations(t *testing.T) {
 	}
 
 	if err != nil {
-		t.Errorf("Expected error to be nil")
+		t.Errorf("Expected error to be: %v, got: %v", nil, err)
 	}
 }
 
@@ -50,5 +50,29 @@ func TestListReservationsWithError(t *testing.T) {
 
 	if err != dbError {
 		t.Errorf("Expected Error to be: %v, got: %v\n", dbError, err)
+	}
+}
+
+func TestGetReservationByID(t *testing.T) {
+	reservation := app.Reservation{
+			ID:             1,
+			Start:          "2020-07-03 08:00:00",
+			End:            "2020-07-03 08:30:00 UTC",
+			Guest:          "John Doe",
+			NumberOfGuests: 2,
+	}
+	reservationsRepo := new(mocks.ReservationsRepo)
+	reservationsRepo.On("GetReservationByID").Return(reservation, nil)
+
+	app := app.NewApp(app.AppInput{ReservationsRepo: reservationsRepo})
+
+	reservationOutput, err := app.GetReservationByID(1)
+
+	if !reflect.DeepEqual(reservationOutput, reservation) {
+		t.Errorf("Expected reservation to be: %v, got: %v\n", reservation, reservationOutput)
+	}
+
+	if err != nil {
+		t.Errorf("Expected error to be: %v, got: %v", nil, err)
 	}
 }

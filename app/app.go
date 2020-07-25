@@ -14,6 +14,7 @@ type ReservationsOutput struct {
 
 type ReservationsRepo interface {
 	ListReservations() ([]Reservation, error)
+	GetReservationByID(id int) (Reservation, error)
 }
 
 type App struct {
@@ -32,4 +33,8 @@ func NewApp(input AppInput) *App {
 
 func (app *App) ListReservations() ([]Reservation, error) {
 	return app.reservationsRepo.ListReservations()
+}
+
+func (app *App) GetReservationByID(id int) (Reservation, error) {
+	return app.reservationsRepo.GetReservationByID(id)
 }

@@ -40,3 +40,17 @@ func (repo *ReservationsRepo) ListReservations() ([]app.Reservation, error) {
 
 	return reservations, nil
 }
+
+func (repo *ReservationsRepo) GetReservationByID(id int) (app.Reservation, error) {
+	var reservation app.Reservation
+	row := repo.db.QueryRow("SELECT * from reservations where id = $1", id)
+
+	switch err := row.Scan(&reservation.ID, &reservation.Start, &reservation.End, &reservation.Guest, &reservation.NumberOfGuests); err {
+		case nil:
+			return reservation, nil
+		case sql.ErrNoRows:
+			return app.Reservation{}, nil
+		default:
+			panic(err)
+	}
+}
