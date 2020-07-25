@@ -1,7 +1,10 @@
 ### What needs to be done
 
-- [ ] Create domain
-- [ ] Create DB entities
-- [ ] Connect to DB
-- [ ] Populate DB with mock data
-- [ ] Return data from DB
+- [x] Create domain
+- [x] Create DB entities
+- [x] Connect to DB
+- [x] Populate DB with mock data
+- [x] Return data from DB
+- [ ] Set up API test env
+- [ ] Replace Sqlite by PostgreSQL
+- [ ] Normalize DB
